@@ -125,4 +125,13 @@ TEST_F(PointAttributeTest, TestResize) {
   ASSERT_EQ(pa.buffer()->data_size(), 4 * 3 * 10);
 }
 
+TEST_F(PointAttributeTest, TestGeomAttributeGetValue) {
+  draco::AttributeValueIndex index{0};
+  std::array<float, 4> arr;
+  draco::GeometryAttribute ga;
+  bool status = ga.GetValue(index, &arr);
+  // Workaround.
+  //bool status = ga.GetValue<float, 4>(index, &arr);
+}
+
 }  // namespace
